@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import PropTypes from 'prop-types';
 
 function Button(props) {
   return (
@@ -52,13 +52,22 @@ class GoldenAcornApp extends React.Component {
   render() {
     return (
       <div className="content"><br/>
-        <Button onClick={this.buyOne} name="Buy one" ></Button><br/><br/>
+        <Button onClick={this.buyOne} name="Buy one"></Button><br/><br/>
         <Display >{this.state.number}</Display><br/>
         <Button onClick={this.eatOne} name="Eat one"></Button><br/>
       </div>
     )
   }
 };
+
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+};
+
+Display.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 ReactDOM.render(
   <GoldenAcornApp />,
