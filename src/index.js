@@ -1,22 +1,23 @@
+//import { render } from 'react-dom';
+//import PropTypes from 'prop-types';
+//import { createStore } from 'redux';
+//import myReducer from './reducers/reducer';
+//import {Button} from './components/button';
+//import {Display} from './components/display';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import store from './store';
+import { Provider } from 'react-redux';
+import AppContainer from './containers/AppContainer';
 
-function Button(props) {
-  return (
-    <button onClick={props.onClick}>{props.name}</button>
-  )
-};
+ReactDOM.render(
+<Provider store={store}>
+  <AppContainer />
+  </Provider>,
+document.getElementById('root')
+)
 
-function Display(props) {
-  return (
-    <div>
-      {props.children}
-    </div>
-  )
-};
-
-class GoldenAcornApp extends React.Component {
+/* class GoldenAcornApp extends React.Component {
   constructor() {
     super();
     this.state = { number: 0 };
@@ -73,3 +74,4 @@ ReactDOM.render(
   <GoldenAcornApp />,
   document.getElementById('root')
 );
+ */
